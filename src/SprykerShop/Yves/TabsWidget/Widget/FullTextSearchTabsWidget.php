@@ -66,7 +66,13 @@ class FullTextSearchTabsWidget extends AbstractWidget
                 $tab->setCount($this->getTabCount($fullTextSearchTabPlugin, $searchString, $requestParams));
             }
 
-            if ($tab->getIsActive() || $tab->getCount()) {
+            if ($tab->getIsActive()) {
+                $tabs[] = $tab;
+
+                continue;
+            }
+
+            if ($tab->getCount() !== null) {
                 $tabs[] = $tab;
             }
         }
