@@ -17,11 +17,6 @@ class TabsWidgetDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_FULL_TEXT_SEARCH_TAB = 'full_text_search_tab_plugins';
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = $this->addFullTextSearchPlugins($container);
@@ -29,11 +24,6 @@ class TabsWidgetDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function addFullTextSearchPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_FULL_TEXT_SEARCH_TAB, function () {

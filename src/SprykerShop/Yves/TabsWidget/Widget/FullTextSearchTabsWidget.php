@@ -30,17 +30,11 @@ class FullTextSearchTabsWidget extends AbstractWidget
             ->addParameter('requestParams', $requestParams);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'FullTextSearchTabsWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@TabsWidget/views/tabs/tabs.twig';
@@ -88,12 +82,6 @@ class FullTextSearchTabsWidget extends AbstractWidget
         return $this->getFactory()->getFullTextSearchTabPlugins();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TabMetaDataTransfer $tabMetaDataTransfer
-     * @param bool $isActive
-     *
-     * @return \Generated\Shared\Transfer\FullTextSearchTabTransfer
-     */
     protected function createTab(TabMetaDataTransfer $tabMetaDataTransfer, bool $isActive = false): FullTextSearchTabTransfer
     {
         $fullTextTabTransfer = new FullTextSearchTabTransfer();
