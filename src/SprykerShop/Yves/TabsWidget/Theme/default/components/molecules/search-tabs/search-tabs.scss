@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 $search-tab-border: 1px solid $setting-color-lighter;
 
 @mixin tabs-widget-search-tabs($name: '.search-tabs') {
@@ -5,6 +7,10 @@ $search-tab-border: 1px solid $setting-color-lighter;
         text-align: center;
         border-left: $search-tab-border;
         border-bottom: $search-tab-border;
+
+        @if meta.mixin-exists(tabs-widget-search-tabs-base-hook) {
+            @include tabs-widget-search-tabs-base-hook;
+        }
 
         &__item {
             display: inline-block;
@@ -44,6 +50,10 @@ $search-tab-border: 1px solid $setting-color-lighter;
     @include tabs-widget-search-tabs();
 
     #{$name} {
+        @if meta.mixin-exists(catalog-page-search-tabs-base-hook) {
+            @include catalog-page-search-tabs-base-hook;
+        }
+
         @content;
     }
 }
